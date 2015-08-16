@@ -216,7 +216,7 @@ public class VideoSvcApiTest {
 
 			fail("The server let us like a video that doesn't exist without returning a 404.");
 		} catch (RetrofitError e) {
-			// Make sure we got a 400 Bad Request
+			// Make sure we got a 404 Not Found
 			assertEquals(404, e.getResponse().getStatus());
 		}
 	}
