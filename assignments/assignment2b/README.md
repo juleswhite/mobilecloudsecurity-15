@@ -74,7 +74,7 @@ POST /oauth/token
      should simply be "pass".
    - Rather than implementing this from scratch, we suggest reusing the example
      configuration from the OAuth 2.0 example in GitHub by copying these classes over:
-     https://github.com/juleswhite/mobilecloud-14/tree/master/examples/9-VideoServiceWithOauth2/src/main/java/org/magnum/mobilecloud/video/auth
+     https://github.com/juleswhite/mobilecloud-15/tree/master/examples/9-VideoServiceWithOauth2/src/main/java/org/magnum/mobilecloud/video/auth
      You will need to @Import the OAuth2SecurityConfiguration into your Application or
      other configuration class to enable OAuth 2.0. You may need to customize the users
      in the OAuth2Config constructor or the security applied by the ResourceServer.configure(...) 
