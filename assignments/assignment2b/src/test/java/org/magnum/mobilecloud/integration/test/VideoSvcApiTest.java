@@ -197,7 +197,7 @@ public class VideoSvcApiTest {
 			fail("The server let us like a video twice without returning a 400");
 		} catch (RetrofitError e) {
 			// Make sure we got a 400 Bad Request
-			assertEquals(400, e.getResponse().getStatus());
+			assertEquals(HttpStatus.SC_BAD_REQUEST, e.getResponse().getStatus());
 		}
 
 		// Get the video again
@@ -217,7 +217,7 @@ public class VideoSvcApiTest {
 			fail("The server let us like a video that doesn't exist without returning a 404.");
 		} catch (RetrofitError e) {
 			// Make sure we got a 404 Not Found
-			assertEquals(404, e.getResponse().getStatus());
+			assertEquals(HttpStatus.SC_NOT_FOUND, e.getResponse().getStatus());
 		}
 	}
 
