@@ -78,10 +78,8 @@ as long as it meets the following client-side requirements:
    should you ever use the UnsafeHttpsClient in a production app. This code is strictly
    for test purposes.
 
-1) You might note that these requirements are same as the one given in Assignment-3 of previous MOOC
-   with the addition of Secure HTTPS communication with Video Service and using OAuth tokens to
-   validate the user. So, you can easily take your earlier implementation and add security to it.
-   You can use the provided SecuredRestBuilder, SecuredRestException, and UnsafeHttpsClient for this purpose. 
+1) You can use the provided SecuredRestBuilder, SecuredRestException, and UnsafeHttpsClient for adding security
+   to client. 
 
 2) You can query the Android Mediastore ContentProvider to get the metadata of recorded videos or
     videos stored in Gallery. You can take a look at VideoUploadClient example in :-
