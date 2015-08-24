@@ -5,7 +5,6 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
@@ -76,7 +75,7 @@ public class VideoSvcApiTest {
 		Video received = readWriteVideoSvcUser1.addVideo(video);
 		assertEquals(video.getName(), received.getName());
 		assertEquals(video.getDuration(), received.getDuration());
-		assertTrue(received.getLikes() == 0);
+		assertEquals(0, received.getLikes());
 		assertTrue(received.getId() > 0);
 	}
 
@@ -129,7 +128,7 @@ public class VideoSvcApiTest {
 		v = readWriteVideoSvcUser1.getVideoById(v.getId());
 
 		// Make sure the like count is 1
-		assertTrue(v.getLikes() == 1);
+		assertEquals(1, v.getLikes());
 
 		// Unlike the video
 		readWriteVideoSvcUser1.unlikeVideo(v.getId());
@@ -138,7 +137,7 @@ public class VideoSvcApiTest {
 		v = readWriteVideoSvcUser1.getVideoById(v.getId());
 
 		// Make sure the like count is 0
-		assertTrue(v.getLikes() == 0);
+		assertEquals(0, v.getLikes());
 	}
 
 	@Test
@@ -189,7 +188,7 @@ public class VideoSvcApiTest {
 		v = readWriteVideoSvcUser1.getVideoById(v.getId());
 
 		// Make sure the like count is 1
-		assertTrue(v.getLikes() == 1);
+		assertEquals(1, v.getLikes());
 
 		try {
 			// Like the video again.
@@ -198,14 +197,14 @@ public class VideoSvcApiTest {
 			fail("The server let us like a video twice without returning a 400");
 		} catch (RetrofitError e) {
 			// Make sure we got a 400 Bad Request
-			assertEquals(400, e.getResponse().getStatus());
+			assertEquals(HttpStatus.SC_BAD_REQUEST, e.getResponse().getStatus());
 		}
 
 		// Get the video again
 		v = readWriteVideoSvcUser1.getVideoById(v.getId());
 
 		// Make sure the like count is still 1
-		assertTrue(v.getLikes() == 1);
+		assertEquals(1, v.getLikes());
 	}
 
 	@Test
@@ -217,8 +216,8 @@ public class VideoSvcApiTest {
 
 			fail("The server let us like a video that doesn't exist without returning a 404.");
 		} catch (RetrofitError e) {
-			// Make sure we got a 400 Bad Request
-			assertEquals(404, e.getResponse().getStatus());
+			// Make sure we got a 404 Not Found
+			assertEquals(HttpStatus.SC_NOT_FOUND, e.getResponse().getStatus());
 		}
 	}
 

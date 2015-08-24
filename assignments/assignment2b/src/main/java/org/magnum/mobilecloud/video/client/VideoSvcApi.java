@@ -8,7 +8,6 @@ import retrofit.http.Body;
 import retrofit.http.GET;
 import retrofit.http.POST;
 import retrofit.http.Path;
-import retrofit.http.Query;
 
 /**
  *                       DO NOT MODIFY THIS INTERFACE
