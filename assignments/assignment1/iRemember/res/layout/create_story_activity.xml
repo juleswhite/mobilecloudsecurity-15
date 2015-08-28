@@ -356,7 +356,6 @@ University of Maryland to appear in their names.
                 android:layout_below="@+id/story_create_value_location_button"
                 android:gravity="right"
                 android:text="0"
-                android:textAlignment="gravity"
                 android:visibility="gone" />
 
             <TextView
@@ -377,7 +376,6 @@ University of Maryland to appear in their names.
                 android:layout_below="@+id/story_create_value_latitude"
                 android:gravity="right"
                 android:text="0"
-                android:textAlignment="gravity"
                 android:visibility="gone" />
         </RelativeLayout>
     </ScrollView>
